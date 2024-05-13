@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/cpp:1-debian-11
+FROM mcr.microsoft.com/devcontainers/cpp:1-debian-12
 
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
 
@@ -18,4 +18,5 @@ RUN if [ "${REINSTALL_CMAKE_VERSION_FROM_SOURCE}" != "none" ]; then \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends libgmp-dev libsecp256k1-dev
+    && apt-get -y install --no-install-recommends libgmp-dev libsecp256k1-dev \
+    libssl-dev
